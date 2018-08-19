@@ -1,0 +1,42 @@
+
+// Select Tip
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.select_tip{
+
+    padding: 2.5rem 0;
+    
+    &--container{
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+   &--percent{
+        
+        border-radius: 6px;
+        color: $gray;
+        font-family: $font-secondary;
+        font-size: 2.3rem;
+        padding: 0 0.6rem;
+        text-decoration: none;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+
+        &:hover{
+
+            background-color: lighten($pink, 10%);
+            color: white;
+
+        }
+    
+    }
+
+    .active{
+
+        background-color: $pink;
+        color: white;
+        
+    }
+        
+}

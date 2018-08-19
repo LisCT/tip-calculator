@@ -6,9 +6,10 @@ class InsertBill extends React.Component {
 
         return(
 
-            <div>
+            <div className="insert-bill">
 
-                <h1>Insert Bill</h1>
+                <h4>Insert Your Bill Total</h4>
+                <input type="number" placeholder="$186.20"/>
 
             </div>
 
