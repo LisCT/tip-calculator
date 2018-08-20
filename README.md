@@ -1,5 +1,6 @@
 # Tip calculator Application
 
+http://tip.surge.sh/
 
 ## Repository
 
@@ -59,8 +60,8 @@ yarn run build:prod or npm run build:prod
 * "node-sass": "4.5.3",
 * "normalize.css": "7.0.0",
 * "prop-types": "^15.6.1",
-* "react": "16.0.0",
-* "react-dom": "16.0.0",
+* "react": "^16.4.0",
+* "react-dom": "^16.4.0",
 * "react-router-dom": "4.2.2",
 * "react-transition-group": "^2.3.0",
 * "sass-loader": "6.0.6",

@@ -11,10 +11,19 @@ class SelectTip extends React.Component {
                 <h4>Select Your Tip %</h4>
 
                 <div className="select_tip--container">
-                    <a href="#" className="select_tip--percent active">10%</a>
-                    <a href="#" className="select_tip--percent">12%</a>
-                    <a href="#" className="select_tip--percent">15%</a>
-                    <a href="#" className="select_tip--percent">20%</a>
+
+                    <input type="radio" id="percent10" className="select_tip--percent active" name="percent" value="10" />
+                    <label htmlFor="percent10">10%</label>
+
+                    <input type="radio" id="percent12" className="select_tip--percent" name="percent" value="12" />
+                    <label htmlFor="percent12">12%</label>
+
+                    <input type="radio" id="percent15" className="select_tip--percent" name="percent" value="15" />
+                    <label htmlFor="percent15">15%</label>
+
+                    <input type="radio" id="percent20" className="select_tip--percent" name="percent" value="20" />
+                    <label htmlFor="percent20">20%</label>
+                   
                 </div>
 
             </div>
