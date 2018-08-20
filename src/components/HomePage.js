@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import Header from '../components/Header';
 import InsertBill from '../components/InsertBill';
@@ -12,15 +12,23 @@ class HomePage extends React.Component{
     
         return(
 
-            <div id="wrapper-container">
+            <Fragment>
+                <div id="wrapper-container">
 
-                <Header/>
-                <InsertBill/>
-                <SelectTip/>
-                <Result/>
-                <Waves/>
+                    <Header/>
+                    <InsertBill/>
+                    <SelectTip/>
+                    <Result/>
 
-            </div>
+                    <div className="waves_wrapper">
+                    <Waves/>
+                </div>
+                    
+
+                </div>
+
+                
+            </Fragment>
         )
 
     }
