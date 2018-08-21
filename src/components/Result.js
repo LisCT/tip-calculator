@@ -7,8 +7,14 @@ class Result extends React.Component{
         return(
 
             <div className="result_content">
-                <h1></h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, possimus beatae! Iusto ab nihil nulla possimus amet minima molestias facere assumenda quia? Quam voluptatibus totam laborum, obcaecati eum quos culpa?</p>
+                <div className="result_content--block result_tip">
+                    <h1>Tip</h1>
+                    <p className="result_content--value">$18.62</p>
+                </div>
+                <div className="result_content--block result_total">
+                    <h1>Total</h1>
+                    <p className="result_content--value">$204.82</p>
+                </div>
             </div>
         )
 
