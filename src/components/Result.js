@@ -9,11 +9,11 @@ class Result extends React.Component{
             <div className="result_content">
                 <div className="result_content--block result_tip">
                     <h1>Tip</h1>
-                    <p className="result_content--value">$18.62</p>
+                    <p className="result_content--value">${this.props.tip}</p>
                 </div>
                 <div className="result_content--block result_total">
                     <h1>Total</h1>
-                    <p className="result_content--value">$204.82</p>
+                    <p className="result_content--value">${this.props.total}</p>
                 </div>
             </div>
         )
