@@ -1,31 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InsertBill extends React.Component {
 
-    handleEvent = (evt) => {
+    static propTypes = {
 
-        const value = Number(evt.target.value);
-        const item =  evt.target.name;
-
-        this.props.handleChange(item, value);
+        bill: PropTypes.number.isRequired,
+        handleChange: PropTypes.func.isRequired
 
     }
 
-    render(){
+    handleEvent = (evt) => {
 
-        return(
+        const { handleChange } = this.props;
+        const value = Number(evt.target.value);
+        const item = evt.target.name;
+
+        handleChange(item, value);
+
+    }
+
+    render() {
+
+        const { bill } = this.props;
+
+        return (
 
             <div className="insert-bill">
 
                 <h4>Insert Your Bill Total</h4>
-                <input type="number" name="bill" placeholder={this.props.bill} onChange={this.handleEvent}/>
+                <input 
+                    type="number"
+                    name="bill"
+                    placeholder={bill}
+                    onChange={this.handleEvent}
+                />
 
             </div>
 
-        )
+        );
 
     }
     
 }
 
-export default InsertBill
+export default InsertBill;

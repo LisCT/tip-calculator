@@ -1,84 +1,86 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 
-import Header from '../components/Header';
-import InsertBill from '../components/InsertBill';
-import SelectTip from '../components/SelectTip';
-import Result from '../components/Result';
-import Waves from '../components/Waves';
+import Header from './Header';
+import InsertBill from './InsertBill';
+import SelectTip from './SelectTip';
+import Result from './Result';
+import Waves from './Waves';
 
-class HomePage extends React.Component{
+class HomePage extends React.Component {
 
     state = {
 
         bill: 0,
         percent: 10,
         tip: 0,
-        total: 0,
+        total: 0
     }  
 
+    // update the bill or the percent
     handleBill = (item, value) => {
 
-        this.setState( {[item]: value });
+        // in a call back because the update of a state in react is not inmediatly.
+        this.setState({ [item]: value }, () => {
 
+            this.handleTip();
+
+        });
+        
     }
 
-    handlePercent = () =>{
+    handleTip = () => {
 
-        let tip = ((Number(this.state.bill) / 100) * Number(this.state.percent)).toFixed(2);
+        const { bill, percent } = this.state;
+
+        const tip = ((Number(bill) / 100) * Number(percent)).toFixed(2);
         
-        this.setState({ tip });
+        this.setState({ tip }, () => {
+
+            this.handleTotal();
+
+        });
         
     }
 
     handleTotal = () => {
 
-        let total = (Number(this.state.tip) + (Number(this.state.bill) )).toFixed(2);
+        const { bill, tip } = this.state;
+
+        const total = (Number(tip) + (Number(bill))).toFixed(2);
 
         this.setState({ total });
     
     }
 
-    executeAsynchronously = (functions, timeout) => {
-
-        for(var i = 0; i < functions.length; i++) {
-
-          setTimeout(functions[i], timeout);
-
-        }
-
-    }
-
-    handleChange = (item, value) => {
-
-        this.executeAsynchronously( [this.handlePercent(), this.handleBill(item,value), this.handleTotal()], 10);
+    render() {
         
-    }
+        const {
+            bill, percent, tip, total 
+        } = this.state;
 
-    render(){
-    
-        return(
+        return (
 
             <Fragment>
                 <div id="wrapper-container">
 
-                    <Header/>
+                    <Header />
                     <InsertBill 
-                        handleChange = {this.handleChange}
-                        bill = {this.state.bill}
+                        handleChange={this.handleBill}
+                        bill={bill}
                     />
 
                     <SelectTip
-                        handleChange = {this.handleChange}
-                        percent = {this.state.percent}
+                        handleChange={this.handleBill}
+                        percent={percent}
                     />
                     <Result
-                        handleChange = {this.handleChange}
-                        tip = {this.state.tip}
-                        total = {this.state.total}
+                        handleChange={this.handleBill}
+                        tip={tip}
+                        total={total}
                     />
 
                     <div className="waves_wrapper">
-                        <Waves/>
+                        <Waves />
                     </div>
                     
 
@@ -86,7 +88,7 @@ class HomePage extends React.Component{
 
                 
             </Fragment>
-        )
+        );
 
     }
 
